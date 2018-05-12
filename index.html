@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>1-on-1 Matchup Predictor</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+<h1 class="name-header" style="text-align:center">#DukeMBB Who Wins Analyzer</h1>
+<div class="row">
+  <div id="left-panel" class="col-sm-4" style='padding-left:40px'>
+    <form name="Players-Left" >
+      <select id="p-left" style="font-size:20px;color:#006699;font-family:verdana;background-color:#ffffff;" name="menu">
+        <option value="Grayson Allen">Grayson Allen</option>
+        <option value="Marques Bolden">Marques Bolden</option>
+        <option value="Javin DeLaurier">Javin DeLaurier</option>
+        <option value="Harry Giles">Harry Giles</option>
+        <option value="Frank Jackson">Frank Jackson</option>
+        <option value="Amile Jefferson">Amile Jefferson</option>
+        <option value="Matt Jones">Matt Jones</option>
+        <option value="Luke Kennard">Luke Kennard</option>
+        <option value="Jayson Tatum">Jayson Tatum</option>
+        <option value="Jack White">Jack White</option>
+      </select>
+      <!-- <input style="font-size:12px;color:#ffffff;font-family:verdana;background-color:#006699;" type="button" onClick="location=document.Players-Left.menu.options[document.Players-Left.menu.selectedIndex].value;" value="click here"> -->
+    </form>
+    
+<!--  Stats panels    -->
+    <div class="stats-panel" >
+      <img
+           id='l-pic' src="http://images.performgroup.com/di/library/sporting_news/33/bd/grayson-allenjpg_yxuxinnuv6541oiv6gkpolrr0.jpg?t=-1705841121&w=960&quality=70" alt="Grayson" class="img-rounded" height='100'></img>
+      <table>
+        <tbody>
+          <tr>
+            <td>Position</td>
+            <td id="l-pos"></td>
+          </tr>
+          <tr>
+            <td>FG Pct.</td>
+            <td id="l-fg"></td>
+          </tr>
+          <tr>
+            <td>3-PT Pct.</td>
+            <td id="l-3p"></td>
+          </tr>
+          <tr>
+            <td>Blocks</td>
+            <td id="l-b"></td>
+          </tr>
+          <tr>
+            <td>Steals</td>
+            <td id="l-s"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<!-- CENTRAL PANEL -->
+
+  <div id="central-panel" class="col-sm-4">
+    <h1 id="versus"> VS</h1>
+    
+    <div id="container"></div>
+    
+    <div class='row'>
+      <div class='col-sm-1'>
+        <button id="compare-button" type="button">GO</button>
+      </div>
+      <div class='col-sm-1'>
+        <a id="tweet-quote" class="btn btn-default" href= "" target="_blank">
+          <img class="tweet" src="http://redriverunited.org/wp-content/uploads/2013/02/twitter-button.png" alt="Twitter" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="right-panel" class="col-sm-4">
+<!--     <h1 class="name-header">Luke</h1> -->
+    <form name="Players-Right" >
+      <select id="p-right" style="font-size:20px;color:#006699;font-family:verdana;background-color:#ffffff;" name="menu">
+        <option value="Grayson Allen">Grayson Allen</option>
+        <option value="Marques Bolden">Marques Bolden</option>
+        <option value="Javin DeLaurier">Javin DeLaurier</option>
+        <option value="Harry Giles">Harry Giles</option>
+        <option value="Frank Jackson">Frank Jackson</option>
+        <option value="Amile Jefferson">Amile Jefferson</option>
+        <option value="Matt Jones">Matt Jones</option>
+        <option value="Luke Kennard">Luke Kennard</option>
+        <option value="Jayson Tatum">Jayson Tatum</option>
+        <option value="Jack White">Jack White</option>
+      </select>
+      <!-- <input style="font-size:12px;color:#ffffff;font-family:verdana;background-color:#006699;" type="button" onClick="location=document.Players-Left.menu.options[document.Players-Left.menu.selectedIndex].value;" value="click here"> -->
+    </form>
+    <!--  Stats panels    -->
+    
+    <div class="stats-panel">
+      <img id='r-pic' src="http://images.performgroup.com/di/library/sporting_news/33/bd/grayson-allenjpg_yxuxinnuv6541oiv6gkpolrr0.jpg?t=-1705841121&w=960&quality=70" alt="Grayson" class="img-rounded" height='100'></img>
+      <table>
+        <tbody>
+          <tr>
+            <td>Position</td>
+            <td id="r-pos"></td>
+          </tr>
+          <tr>
+            <td>FG Pct.</td>
+            <td id="r-fg"></td>
+          </tr>
+          <tr>
+            <td>3-PT Pct.</td>
+            <td id="r-3p"></td>
+          </tr>
+          <tr>
+            <td>Blocks</td>
+            <td id="r-b"></td>
+          </tr>
+          <tr>
+            <td>Steals</td>
+            <td id="r-s"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<script src='https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
